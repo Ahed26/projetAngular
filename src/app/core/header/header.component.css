@@ -1,0 +1,12 @@
+.app-header {
+  background: linear-gradient(90deg, #8ec5ff, #e0c3fc);
+  padding: 16px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.app-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #0b2545;
+}

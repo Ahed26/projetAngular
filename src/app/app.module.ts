@@ -1,26 +1,29 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { ListSuggestionComponent } from './core/list-suggestion/list-suggestion.component';
+import { SuggestionFormComponent } from './features/suggestions/suggestion-form/suggestion-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ListSuggestionComponent,
+    SuggestionFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
