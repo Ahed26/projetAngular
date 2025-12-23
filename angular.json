@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "projectName": {
+    "EtudeDeCasIACC": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/project-name",
+            "outputPath": "dist/etude-de-cas-iacc",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,14 +37,11 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -74,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "projectName:build:production"
+              "buildTarget": "EtudeDeCasIACC:build:production"
             },
             "development": {
-              "buildTarget": "projectName:build:development"
+              "buildTarget": "EtudeDeCasIACC:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,6 +106,6 @@
     }
   },
   "cli": {
-    "analytics": "18d736e3-1d06-4287-8ada-2bfb10f1d968"
+    "analytics": "50871eba-f6d5-458d-b5fc-0dcd7fc0b3d7"
   }
 }

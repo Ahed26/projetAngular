@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { HomeComponent } from './home/home.component';
-import { SuggestionListComponent } from './suggestion-list/suggestion-list.component';
-import { SuggDetailsComponent } from './sugg-details/sugg-details.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { SuggestionFormComponent } from './features/suggestions/suggestion-form/suggestion-form.component';
+import { HomeComponent } from './core/home/home.component';
+import { ListSuggestionComponent } from './features/suggestions/list-suggestion/list-suggestion.component';
+import { NotfoundComponent } from './core/notfound/notfound.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-
+   { path: '', redirectTo: '/home', pathMatch: 'full' },  // default
   { path: 'home', component: HomeComponent },
+  { path: 'listSuggestion', component: ListSuggestionComponent },
 
-  { path: 'suggList', component: SuggestionListComponent },
+  // Lazy modules (will be added later)
+  {
+    path: 'suggestions',
+    loadChildren: () =>
+      import('./features/suggestions/suggestions.module').then(m => m.SuggestionsModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./features/users/users.module').then(m => m.UsersModule)
+  },
+   { path: 'suggestions', loadChildren: () => import('./features/suggestions/suggestions.module').then(m => m.SuggestionsModule) },
+   { path: 'users', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
 
-  { path: 'sugg/add', component: SuggestionFormComponent },   // ✅ Ajouter suggestion
-
-  { path: 'sugg/:id', component: SuggDetailsComponent },
-
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotfoundComponent } // wildcard
 ];
 
 @NgModule({
