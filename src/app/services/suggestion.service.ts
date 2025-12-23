@@ -28,4 +28,4 @@ export class SuggestionService {
   deleteSuggestion(id: number) {
     return this.http.delete(this.suggestionUrl + '/' + id);
   }
-}
+}       
